@@ -1,20 +1,18 @@
-import Menu from "../../api";
-import { useState } from "react";
-
-function Category({ type }) {
-  const [food, setFood] = useState(Menu);
-  const filterItem = (type) => {
-    const menu = Menu.filter((currElement) => {
-      return currElement.category === type;
-    });
-    setFood(menu);
-  };
+function Category({ type, updateMenu }) {
   return (
-    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-      <li className="nav-item">
-        <button onClick={() => filterItem("breakfast")}>{type}</button>
-      </li>
-    </ul>
+    <>
+      {type.map((currElement) => {
+        return (
+          <button
+            style={{ flex: "0 33% auto" }}
+            className="btn btn-primary"
+            onClick={() => updateMenu(currElement)}
+          >
+            {currElement}
+          </button>
+        );
+      })}
+    </>
   );
 }
 

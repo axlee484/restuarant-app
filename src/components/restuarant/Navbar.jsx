@@ -1,6 +1,7 @@
 import Category from "./Category";
+import Food from "../../api";
 
-function Navbar({ Food }) {
+function Navbar({ updateMenu }) {
   const category = [
     ...new Set(
       Food.map((currElement) => {
@@ -30,9 +31,24 @@ function Navbar({ Food }) {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            {category.map((currElement) => {
-              return <Category type={currElement} key={currElement.id} />;
-            })}
+            <div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-around",
+                }}
+              >
+                <Category type={category} updateMenu={updateMenu} />
+                <button
+                  style={{ flex: "0 33% auto" }}
+                  className="btn btn-primary"
+                  onClick={() => updateMenu("All")}
+                >
+                  All
+                </button>
+              </div>
+            </div>
             <form className="d-flex" role="search">
               <input
                 className="form-control me-2"

@@ -1,7 +1,6 @@
 import Card from "./Card";
-import Food from "../../api";
 
-function Menu({ newMenu }) {
+function Menu({ Food }) {
   const items = Food.map((currElement) => {
     return currElement;
   });
