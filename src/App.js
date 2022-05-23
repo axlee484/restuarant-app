@@ -1,5 +1,9 @@
-function App() {
-  return <>Hello</>;
-}
+import Restuarant from "./components/Restuarant";
 
-export default App;
+export default function App() {
+  return (
+    <>
+      <Restuarant></Restuarant>
+    </>
+  );
+}
